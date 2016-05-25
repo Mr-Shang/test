@@ -1,0 +1,86 @@
+package List;
+
+import java.util.Scanner;
+
+public class StudentManagSystem extends SqList {
+	private static Scanner in;
+
+	// 按顺序结构构造顺序表，其中参数max指的是顺序表的最大存储空间
+	public StudentManagSystem(int maxSize, int n) throws Exception {
+		super(maxSize);
+		in = new Scanner(System.in);
+		for (int i = 0; i < n; i++) {// 创建带有n个元素的顺序表
+			StudentNode studentNode = new StudentNode(in);
+			if (studentNode != null) {
+				insert(studentNode);// 将新的元素插入到顺序表的表尾
+			} else {
+				i--;// 若不成功，则不计数
+			}
+		}
+	}
+
+	// 覆盖父类的get方法，从顺序表里取出指定学号的学生信息，并返回一个studentNode对象，
+	public StudentNode get(int number) throws Exception {
+		for (int i = 0; i < length(); i++) {// 遍历顺序表
+			StudentNode studentNode = (StudentNode) super.get(i);// 调用父类的get方法
+			if (studentNode.number == number) {
+				return studentNode;// 包含指定的学号，返回该学生的信息
+			}
+		}
+		throw new Exception("学号" + number + "不存在");
+	}
+
+	// 重载了父类的insert方法，在顺序表的表尾插入一个学生信息。
+	private void insert(StudentNode studentNode) throws Exception {
+		super.insert(this.length(), studentNode);// 调用父类的insert方法
+	}
+
+	// 覆盖父类的remove方法
+	public void remove(int number) throws Exception {
+		for (int i = 0; i < length(); i++) {// 遍历顺序表
+			StudentNode studentNode = (StudentNode) super.get(i);// 取出第i项
+			if (studentNode.number == number) {
+				super.remove(i);// 去除第i项
+			}
+		}
+	}
+
+	// 重载父类的display方法，输出顺序表中所有的元素
+	public void display() {
+		for (int i = 0; i < length(); i++) {// 遍历顺序表
+			try {
+				StudentNode studentNode = (StudentNode) super.get(i);
+				dispalyNode(studentNode);
+			} catch (Exception e) {
+			}
+		}
+	}
+
+	// 输出一个学生的信息
+	private void dispalyNode(StudentNode studentNode) {
+		System.out.println("学号：" + studentNode.number + "姓名：" + studentNode.name + "性别： " + studentNode.sex + "大学英语："
+				+ studentNode.english + "大学数学：" + studentNode.math);
+	}
+
+	public static void main(String[] args) throws Exception {
+		int maxSize = 1000;
+		in = new Scanner(System.in);
+		System.out.println("请输入学生人数：");
+		int n = in.nextInt();
+		System.out.println("请按学号，姓名，性别，大学英语，大学数学的顺序输入信息：");
+		StudentManagSystem studentManagSystem = new StudentManagSystem(maxSize, n);
+		// studentManagSystem.insert(new StudentNode());
+		studentManagSystem.display();
+		System.out.println("请输入要查询的学号：");
+		studentManagSystem.dispalyNode(studentManagSystem.get(in.nextInt()));
+		System.out.println("请输入要删除的学生的学号：");
+		studentManagSystem.remove(in.nextInt());
+		System.out.println("删除成功！");
+		studentManagSystem.display();
+
+		System.out.println("请输入需要增加的学生信息：");
+		studentManagSystem.insert(new StudentNode(in));
+		studentManagSystem.display();
+	}
+
+}
