@@ -1,0 +1,33 @@
+package Brute_Force;
+
+/**
+ * 字符串匹配操作
+ * 
+ * @author 东
+ *
+ */
+public class Brute_force {
+	// t为子串，start是主串的匹配起始位置
+	public int indexOF_Brute_Force(String t ,int start){
+		if (this!=null&&t!=null&&t.length()>0&&this.length()>=t.length()) {
+			int slen,tlen,i=start,j=0;
+			slen=this.length();
+			tlen=t.length();
+			while ((i<slen)&&(j<tlen)) {
+				if (this.charAt(i)==t.charAt(j)) {
+					i++;
+					j++;
+				} else {
+					i=i-j+1;
+					j=0;
+				}
+			}
+			if (j>=t.length()) {
+				return i-t.length();
+			}
+		else {
+			return -1;
+		}
+	}
+
+}
