@@ -1,0 +1,58 @@
+package SparseMatrix;
+
+public class SparseMatrix {
+	public TripleNode data[];// 三元组表
+	public int rows;// 行数
+	public int cols;// 列数
+	public int nums;// 非零个数
+
+	public SparseMatrix(int maxSize) {
+		data = new TripleNode[maxSize];// 为顺序表分配配存储单元
+		for (int i = 0; i < data.length; i++) {
+			data[i] = new TripleNode();
+		}
+		rows = 0;
+		cols = 0;
+		nums = 0;
+	}
+
+	public void print() {
+		int i;
+		System.out.println("稀疏矩阵的三元组的存储结构：");
+		System.out.println("行数： " + rows + " 列数： " + cols + " 非零元素的个数是：" + nums);
+		System.out.println("行下标  列下标 元素值 ");
+		for (i = 0; i < nums; i++) {
+			System.out.println(data[i].row + "\t" + data[i].column + "\t" + data[i].value);
+		}
+	}
+
+	/**
+	 * 初始化三元顺序表 把叙述矩阵中的所有非零元插入到三元顺序表中
+	 * 
+	 * @param mat
+	 */
+
+	public SparseMatrix(int mat[][]) {
+		int i, j, k = 0;
+		int count = 0;
+		rows = mat.length;// 行数
+		cols = mat[0].length;// 列数
+		for (i = 0; i < mat.length; i++) {// 统计非零元的个数
+			for (j = 0; j < mat[i].length; j++) {
+				if (mat[i][j] != 0) {
+					count++;
+				}
+			}
+		}
+		nums = count;// 非零元的个数
+		data = new TripleNode[nums];// 为非零元素申请空间
+		for (i = 0; i < mat.length; i++) {
+			for (j = 0; j < mat[i].length; j++) {
+				if (mat[i][j] != 0) {
+					data[k] = new TripleNode(i, j, mat[i][j]);// 建立三元组表
+					k++;
+				}
+			}
+		}
+	}
+}

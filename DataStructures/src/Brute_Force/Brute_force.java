@@ -8,7 +8,7 @@ package Brute_Force;
  * @author 东
  *
  */
-public class Brute_force {
+/*public class Brute_force {
 	// t为子串，start是主串的匹配起始位置
 	public int indexOF_Brute_Force(String t, int start) {
 		if (this != null && t != null && t.length() > 0 && this.length() >= t.length()) {
@@ -31,4 +31,4 @@ public class Brute_force {
 			}
 		}
 	}
-}
+}*/

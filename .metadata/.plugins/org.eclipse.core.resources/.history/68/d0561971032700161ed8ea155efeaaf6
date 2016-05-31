@@ -1,0 +1,9 @@
+package SparseMatrix;
+
+public class Magic {
+	
+		public Magic(int n){
+			
+		
+	}
+}
