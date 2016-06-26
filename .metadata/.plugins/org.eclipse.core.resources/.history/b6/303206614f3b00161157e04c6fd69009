@@ -1,0 +1,55 @@
+package BiTree;
+
+public class BiTree {
+	private BiTreeNode root;//树的根节点
+	public BiTree(){//构造一个空树
+		this.root=null;
+	}
+	//构造一棵树
+	public BiTree(BiTreeNode root){
+		this.root=root;
+	}
+	//由先根遍历和中根遍历序列创建一棵二叉树的算法。
+	public BiTree(String preOrder,String inOrder,int perIndex,int inIndex,int count){
+		
+	}
+	//由标明空子树的先根遍历序列创建一棵二叉树的算法
+	public static int index=0;//由于记录prestr的索引值
+	public BiTree(String preStr){
+		
+	}
+	//先根遍历二叉树递归算法
+	public void preRootTraverse(BiTreeNode T){
+		
+	}
+	//先根遍历二叉树的非递归算法
+	public void preRootTraverse(){
+		
+	}
+	//中根遍历二叉树的递归算法
+	public void inRootTraverse(BiTreeNode T){
+		
+	}
+	//中根遍历二叉树的非递归算法
+	public void inRootTraverse(){
+		
+	}
+	//后根遍历二叉树的递归算法
+	public void postRootTraverse(BiTreeNode T){
+		
+	}
+	//后根遍历二叉树的非递归算法
+	public void postRootTraverse(){
+		
+	}
+	//层次遍历二叉树的算法（自左向右）
+	public void levelTraverse(){
+		
+	}
+	public BiTreeNode getRoot(){
+		return root;
+	}
+	public void setRoot(){
+		this.root=root;
+	}
+}

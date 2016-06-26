@@ -1,0 +1,16 @@
+package BiTree;
+
+/**
+ * 根据完全二叉树的顺序存储结构建立一棵二叉树的链式存储结构，输出该二叉树的先序，中序，后序遍历和树的深度
+ * 
+ * @author 东
+ *
+ */
+public class Example5_7 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

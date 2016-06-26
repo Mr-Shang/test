@@ -1,0 +1,218 @@
+package BiTree;
+
+import Queue.LinkQueue;
+import Stack.LinkStack;
+
+public class BiTree {
+	private BiTreeNode root;// 树的根节点
+
+	public BiTree() {// 构造一个空树
+		this.root = null;
+	}
+
+	// 构造一棵树
+	public BiTree(BiTreeNode root) {
+		this.root = root;
+	}
+
+	// 由先根遍历和中根遍历序列创建一棵二叉树的算法。
+	public BiTree(String preOrder, String inOrder, int perIndex, int inIndex, int count) {
+
+	}
+
+	// 由标明空子树的先根遍历序列创建一棵二叉树的算法
+	public static int index = 0;// 由于记录prestr的索引值
+
+	public BiTree(String preStr) {
+
+	}
+
+	// 先根遍历二叉树递归算法
+	public void preRootTraverse(BiTreeNode T) {
+		if (T != null) {
+			System.out.print(T.data);// 访问根节点
+			preRootTraverse(T.lchild);
+			;// 先根遍历左子树
+			preRootTraverse(T.rchild);
+			;// 先根遍历右子树
+		}
+	}
+
+	// 先根遍历二叉树的非递归算法
+	public void preRootTraverse() throws Exception {
+		/**
+		 * 1、创建一个栈对象，将根节点入栈 2、当栈为非空时，将栈顶结点弹出栈并访问该结点
+		 * 3、对当前访问结点的非空左孩子结点相继依次访问，并将当前访问结点的非空右孩子结点入栈 4、重复执行（2）（3），直到栈空为止
+		 */
+		BiTreeNode T = root;
+		if (T != null) {
+			LinkStack S = new LinkStack();// 构建一个栈
+			S.push(T);// 将根节点入栈
+			while (!S.isEmpty()) {
+				T = (BiTreeNode) S.pop();// 移出栈顶结点，并返回其值
+				System.out.print(T.data);// 访问结点
+				while (T != null) {
+					if (T.lchild != null) {
+						System.out.print(T.lchild.data);// 访问做左孩子结点
+					}
+					if (T.rchild != null) {
+						S.push(T.rchild);// 右孩子结点入栈
+					}
+					T = T.lchild;
+				}
+			}
+		}
+
+	}
+
+	// 中根遍历二叉树的递归算法
+	public void inRootTraverse(BiTreeNode T) {
+		if (T != null) {
+			inRootTraverse(T.lchild);// 中根遍历左子树
+			System.out.print(T.data);// 访问根节点
+			inRootTraverse(T.rchild);// 中根遍历右子树
+
+		}
+
+	}
+
+	// 中根遍历二叉树的非递归算法
+	public void inRootTraverse() throws Exception {
+		/**
+		 * 1、创建一个栈对象，根节点入栈 2、若栈非空，则将栈顶结点的非空左孩子相继入栈
+		 * 3、栈顶结点出栈并访问非空栈顶结点，并使该栈顶结点的非空右孩子结点入栈 4、重复（2）（3）直到栈空为止
+		 */
+		BiTreeNode T = root;
+		LinkStack S = new LinkStack();// 构造链栈
+		S.push(T);// 根节点入栈
+		while (!S.isEmpty()) {
+			while (S.peek() != null) {
+				S.push(((BiTreeNode) S.peek()).lchild);// 将栈顶结点的左孩子结点相继入栈
+			}
+			S.pop();// 空节点弹栈
+			if (!S.isEmpty()) {
+				T = (BiTreeNode) S.pop();// 移出栈顶结点，并返回其值
+				System.out.print(T.data);// 访问结点
+				S.push(T.rchild);// 结点的右孩子入栈
+			}
+		}
+
+	}
+
+	// 后根遍历二叉树的递归算法
+	public void postRootTraverse(BiTreeNode T) {
+		if (T != null) {
+			postRootTraverse(T.lchild);// 后根遍历左子树
+			postRootTraverse(T.rchild);// 后根遍历右子树
+			System.out.print(T.data);// 访问根节点
+		}
+
+	}
+
+	// 后根遍历二叉树的非递归算法
+	public void postRootTraverse() throws Exception {
+		/**
+		 * 1、创建一个栈对象，根节点入栈，p赋值为null 2、若栈非空，则栈顶结点的非空左孩子相继入栈
+		 * 3、若栈非空，查看栈顶结点，若栈顶结点的右孩子为空，或者与p相等，则将栈顶结点弹出并访问他，同时使p指向该结点，并置flag值为true；
+		 * 否则，将栈定结点的右孩子入栈，并置flag为false；
+		 * 4、若flag为true，则重复执行步骤（3），否则，重复执行步骤（2）（3），直到栈空为止
+		 */
+		BiTreeNode T = root;
+		if (T != null) {
+			LinkStack S = new LinkStack();// 构造链栈
+			S.push(T);// 根节点入栈
+			Boolean flag;// 访问标记
+			BiTreeNode p = null;// p指向刚被访问的结点
+			while (!S.isEmpty()) {
+				while (S.peek() != null) {
+					S.push(((BiTreeNode) S.peek()).lchild);// 将栈顶结点的左孩子相继入栈
+				}
+				S.pop();
+				while (!S.isEmpty()) {
+					T = (BiTreeNode) S.peek();// 查看栈顶元素
+					if (T.rchild == null || T.rchild == p) {
+						System.out.print(T.data);// 访问结点
+						S.pop();// 移出栈顶结点
+						p = T;// p指向更被访问的结点
+						flag = true;// 设置访问标记
+					} else {
+						S.push(T.rchild);// 右孩子结点入栈
+						flag = false;// 设置未被访问标记
+					}
+					if (!flag) {
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	// 层次遍历二叉树的算法（自左向右）
+	public void levelTraverse() throws Exception {
+		/**
+		 * 1、创建一个队列对象，根节点入队 2、若队非空，则将队首结点出队并访问该结点，再将该结点的非空左，右孩子结点一次入队
+		 * 3、重复步骤（2），。直到队为空
+		 */
+		BiTreeNode T = root;
+		if (T != null) {
+			LinkQueue L = new LinkQueue();// 构造队列
+			L.offer(T);// 根节点入队
+			while (!L.isEmpty()) {
+				T = (BiTreeNode) L.poll();
+				System.out.print(T.data);// 访问界定啊
+				if (T.lchild != null) {// 左孩子非空，入队
+					L.offer(T.lchild);
+				}
+				if (T.rchild != null) {// 右孩子非空，入队。
+					L.offer(T.rchild);
+				}
+			}
+		}
+	}
+
+	// 在二叉树中查找值为x的结点
+	public BiTreeNode searchNode(BiTreeNode T, Object x) {
+		/**
+		 * 1、若二叉树为空，则不存在这个结点，若返回值为空；否则，将根节点的值与x进行比较，若相等则返回该结点
+		 * 2、若根节点的值不与x相等，则在左子树中进行查找，若找到，则返回找到的结点
+		 * 3、若在左子树中没有找到值为x的结点，则继续在右子树中进行查找，并返回查找结果
+		 */
+		if (T != null) {
+			if (T.data.equals(x)) {// 对根节点进行判断
+				return T;
+			} else {
+				BiTreeNode lresult = searchNode(T.lchild, x);// 查找左子树
+				return lresult != null ? lresult : searchNode(T.rchild, x);
+				// 若在左子树中查找到x的值，则返回该结点；否则在右子树中查找该结点，并返回结果。
+			}
+		}
+		return null;
+	}
+
+	// 统计二叉树中结点的个数
+	public int countNode(BiTreeNode T) {
+		/**
+		 *1、计数变量count为0
+		 *2、若二叉树非空，则：
+		 *	（1）count+1
+		 *	(2)统计根节点的左子树的结点的个数，并加到count中去
+		 *	（3）统计根节点的右孩子的结点的个数，并加到count中去。
+		 *3、返回count 
+		 */
+		int count = 0;
+		if (T != null) {
+			++count;
+			count += countNode(T.lchild);
+			count += countNode(T.rchild);
+		}
+		return count;
+	}
+
+	public BiTreeNode getRoot() {
+		return root;
+	}
+
+	public void setRoot() {
+		this.root = root;
+	}
+}

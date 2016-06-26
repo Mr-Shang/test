@@ -1,0 +1,45 @@
+package BiTree;
+
+public class BiTree {
+	private BiTreeNode root;
+	public BiTree(){
+		this.root=null;
+	}
+	public BiTree(BiTreeNode root){
+		this.root=root;
+	}
+	public BiTree(String preOrder,String inOrder,int perIndex,int inIndex,int count){
+		
+	}
+	public static int index=0;
+	public BiTree(String prestr){
+		
+	}
+	public void preRootTraverse(BiTreeNode T){
+		
+	}
+	public void preRootTraverse(){
+		
+	}
+	public void inRootTraverse(BiTreeNode T){
+		
+	}
+	public void inRootTraverse(){
+		
+	}
+	public void postRootTraverse(BiTreeNode T){
+		
+	}
+	public void postRootTraverse(){
+		
+	}
+	public void levelTraverse(){
+		
+	}
+	public BiTreeNode getRoot(){
+		return root;
+	}
+	public void setRoot(){
+		this.root=root;
+	}
+}
