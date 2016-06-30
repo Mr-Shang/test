@@ -1,0 +1,47 @@
+package Graph;
+
+public class MGraph implements IGraph {
+
+	@Override
+	public void createGraph() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public int getVexNum() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getArcNum() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Object getVex(int v) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int locateVex(Object vex) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int firstAdjVex(int v) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int nextAdjVex(int v, int w) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

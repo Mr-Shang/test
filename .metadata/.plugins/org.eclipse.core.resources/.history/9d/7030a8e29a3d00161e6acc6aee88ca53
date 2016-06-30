@@ -1,0 +1,9 @@
+package Huffman;
+
+public class HuffmanNode {
+	public int weight;
+	public int flag;
+	public HuffmanNode parent,lchild,rchild;
+	
+
+}

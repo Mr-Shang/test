@@ -1,0 +1,94 @@
+package Graph;
+
+/**
+ * 一个具有n个顶点的图G，可以将图G的临接矩阵存储在一个二维数组中。
+ * 
+ * @author 东
+ *
+ */
+public class MGraph implements IGraph {
+	public final static int INFINITY = Integer.MAX_VALUE;
+	private GraphKind kind;// 图的种类标志
+	private int vexNum, arcNum;// 图的当前顶点数和边数
+	private Object[] vexs;// 顶点
+	private int[][] arcs;// 临阶矩阵
+
+	public MGraph() {
+		this(null, 0, 0, null, null);
+	}
+
+	public MGraph(GraphKind kind, int vexNum, int arcNum, Object[] vexs, int[][] arcs) {
+		super();
+		this.kind = kind;
+		this.vexNum = vexNum;
+		this.arcNum = arcNum;
+		this.vexs = vexs;
+		this.arcs = arcs;
+	}
+
+	// 创建图
+	@Override
+	public void createGraph() {
+		// TODO Auto-generated method stub
+
+	}
+
+	// 创建无向图
+	public void createUDG() {
+
+	};
+
+	// 创建有向图
+	public void createDG() {
+
+	};
+
+	// 创建无向网
+	public void createUDN() {
+
+	}
+
+	// 创建有向网
+	public void createDN() {
+
+	}
+
+	// 返回顶点数
+	@Override
+	public int getVexNum() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	// 返回边数
+	@Override
+	public int getArcNum() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Object getVex(int v) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int locateVex(Object vex) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int firstAdjVex(int v) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int nextAdjVex(int v, int w) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

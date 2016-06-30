@@ -1,0 +1,56 @@
+package Graph;
+
+public interface IGraph {
+	/**
+	 * 创建一个图
+	 * @throws Exception 
+	 */
+	void createGraph() throws Exception;
+
+	/**
+	 * 返回图中的定点数
+	 * 
+	 * @return
+	 */
+	int getVexNum();
+
+	/**
+	 * 返回图中的边数
+	 * 
+	 * @return
+	 */
+	int getArcNum();
+
+	/**
+	 * 给定顶点的位置v，返回顶点的值
+	 * 
+	 * @return
+	 */
+	Object getVex(int v) throws Exception;
+
+	/**
+	 * 给定顶点的值vex，返回在图中的位置
+	 * 
+	 * @param vex
+	 * @return
+	 */
+	int locateVex(Object vex) throws Exception;
+
+	/**
+	 * 返回v的第一个领进点，若v没有临近点，返回-1
+	 * 
+	 * @param v
+	 * @return
+	 */
+	int firstAdjVex(int v) throws Exception;
+
+	/**
+	 * 返回v相对于w的下一个临近点
+	 * 
+	 * @param v
+	 * @param w
+	 * @return
+	 */
+	int nextAdjVex(int v, int w);
+
+}

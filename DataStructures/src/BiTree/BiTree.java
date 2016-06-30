@@ -278,7 +278,9 @@ public class BiTree {
 		return root;
 	}
 
-	public void setRoot() {
+	public void setRoot(BiTreeNode root) {
 		this.root = root;
 	}
+
+	
 }

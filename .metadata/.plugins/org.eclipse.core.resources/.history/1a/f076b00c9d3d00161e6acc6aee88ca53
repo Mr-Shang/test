@@ -1,0 +1,43 @@
+package Huffman;
+
+public class HuffmanTree {
+
+	public int[][] huffmanCoding(int[] W) {
+		int n = W.length;
+		int m = 2 * n - 1;
+		HuffmanNode[] HM = new HuffmanNode[m];
+		int i;
+		for (i = 0; i < n; i++) {
+			HM[i] = new HuffmanNode(W[i]);
+		}
+		for (i = n; i < m; i++) {
+			HuffmanNode min1 = selectMin(HM, i - 1);
+			min1.flag = 1;
+			HuffmanNode min2 = selectMin(HM, i - 1);
+			min2.flag = 1;
+			HM[i] = new HuffmanNode();
+			min1.parent = HM[i];
+			min2.parent = HM[i];
+			HM[i].lchild = min1;
+			HM[i].rchild = min2;
+			HM[i].weight = min1.weight + min2.weight;
+		}
+		int[][] HuffCode = new int[n][n];
+		for (int j = 0; j < n; j++) {
+			int start = n - 1;
+			for (HuffmanCode c = HM[j], p = c.parent; p != null; c = p, p = p.parent) {
+
+			}
+		}
+	}
+
+	private HuffmanNode selectMin(HuffmanNode[] HM, int end) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}

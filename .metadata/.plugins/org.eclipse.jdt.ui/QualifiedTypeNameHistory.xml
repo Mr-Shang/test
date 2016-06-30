@@ -2,15 +2,19 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="SparseMatrix.TripleNode"/>
 <fullyQualifiedTypeName name="SparseMatrix.SparseMatrix"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="SparseMatrix.Magic"/>
 <fullyQualifiedTypeName name="Stack.LinkStack"/>
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
 <fullyQualifiedTypeName name="BiTree.DebugBiTree"/>
-<fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="Queue.LinkQueue"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="BiTree.Example5_7"/>
 <fullyQualifiedTypeName name="BiTree.BiTreeNode"/>
 <fullyQualifiedTypeName name="BiTree.BiTree"/>
+<fullyQualifiedTypeName name="Huffman.HuffmanNode"/>
+<fullyQualifiedTypeName name="Huffman.HuffmanTree"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="Graph.GraphKind"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
 </qualifiedTypeNameHistroy>
