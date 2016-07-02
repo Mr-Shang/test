@@ -1,0 +1,18 @@
+package Sort;
+
+public class RecordNode {
+	public Comparable key;
+	public Object element;
+
+	public RecordNode(Comparable key) {
+		super();
+		this.key = key;
+	}
+
+	public RecordNode(Comparable key, Object element) {
+		super();
+		this.key = key;
+		this.element = element;
+	}
+
+}

@@ -1,0 +1,40 @@
+package Sort;
+
+public class SeqList {
+	public RecordNode[] r;
+	public int curlen;
+
+	public SeqList(int maxSize) {
+		this.r = new RecordNode[maxSize];
+		this.curlen = 0;
+	}
+
+	// 在当前顺序表的第i个位置插入x
+	public void insert(int i, RecordNode x) throws Exception {
+		if (curlen == r.length) {
+			throw new Exception("顺序表已满！");
+		}
+		if (i < 0 || i > curlen) {
+			throw new Exception("插入位置不合理！");
+		}
+		for (int j = curlen; j < i; j++) {
+			r[j] = r[j - 1];
+		}
+		r[i] = x;
+		this.curlen++;
+	}
+
+	// 不带监视哨的直接插入排序
+	public void insertSort() {
+		RecordNode temp;
+		int i, j;
+		for (i = 1; i < this.curlen; i++) {//n-1趟扫描
+			temp = r[i];//将带插入数据记录在temp中
+			for (j = i - 1; j >= 0 && temp.key.compareTo(r[j]) < 0; j++) {//将前面比r【i】大的记录向后移
+				r[j + 1] = r[j];
+			}
+			r[j + 1] = temp;
+		}
+	}
+
+}

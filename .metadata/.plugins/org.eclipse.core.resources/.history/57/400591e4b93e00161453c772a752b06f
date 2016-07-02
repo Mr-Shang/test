@@ -1,0 +1,8 @@
+package Sort;
+
+public class insertSort {
+	RecordNode temp;
+	int i,j;
+	for(i=1;i<this.l)
+
+}
